@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Blue Planet</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa;
+            color: #006064;
+        }
+
+        header {
+            background-color: #004d40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        main {
+            padding: 20px;
+            max-width: 600px; /* Limit the width of the main content */
+            margin: auto; /* Center the main content */
+        }
+
+        h1, h2 {
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #b2ebf2;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #004d40;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #004d40;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Blue Planet</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Fun Facts About Earth</h2>
+            <ul id="facts-list">
+                <li>Earth is the only planet known to have liquid water on its surface.</li>
+                <li>About 71% of Earth's surface is covered by water.</li>
+                <li>Earth is approximately 4.5 billion years old.</li>
+                <li>It is home to an estimated 8.7 million species of plants and animals.</li>
+                <li>The Great Barrier Reef is the largest coral reef system in the world.</li>
+            </ul>
+            <button id="alert-button">Click for a Fun Fact!</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 The Blue Planet</p>
+    </footer>
+    <script>
+        let attempts = 0;
+        const button = document.getElementById('alert-button');
+
+        button.addEventListener('click', function() {
+            attempts++;
+            if (attempts < 3) {
+                alert('You need to get closer to the button!');
+                moveButton();
+            } else {
+                alert('Did you know? Earth is the only planet that supports life as we know it!');
+                resetButton();
+            }
+        });
+
+        function moveButton() {
+            const randomX = Math.floor(Math.random() * 200) - 100; // Random X offset
+            const randomY = Math.floor(Math.random() * 200) - 100; // Random Y offset
+            button.style.transform = `translate(${randomX}px, ${randomY}px)`; // Fixed template literal
+        }
+
+        function resetButton() {
+            button.style.transform = 'translate(0, 0)'; // Reset button position
+            attempts = 0; // Reset attempts
+        }
+    </script>
+</body>
+</html>
